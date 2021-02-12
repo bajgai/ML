@@ -13,7 +13,7 @@ num_labels = size(all_theta, 1);
 
 
 % You need to return the following variables correctly 
-p = zeros(size(X, 1), 1);
+% p = zeros(size(X, 1), 1);
 
 % Add ones to the X data matrix
 X = [ones(m, 1) X];
@@ -31,24 +31,9 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-%% Non vectorized implementation
-% for i = 1:m
-% 	prediction = size(all_theta,1);
-% 	for j =1: num_labels
-% 		prediction(j) = sigmoid(X(i,:) * all_theta(j,:)');
-% 	[x, ix] = max(prediction);
-% 	p(i) = ix; 
-% 	end
+predictions = sigmoid(X * all_theta');
 
-% end
-
-p = max()
-
-
-
-
-
-% =========================================================================
-
+[pred, ipred] = max(predictions, [], 2);
+p = ipred;
 
 end
